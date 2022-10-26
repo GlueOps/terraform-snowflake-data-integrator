@@ -6,6 +6,8 @@ This module offers an opinionated structure for use with third-party data integr
 
 It is designed to offer isolation for third-party tools, including dedicated a dedicated warehouse and database to mitigate resource contention, restrict data access within a Snowflake account, and facilitate the usage of multiple data integration tools.
 
+The module leverages the [Snowflake Terraform Provider](https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest).
+
 The module can be used in conjunction with [terraform-snowflake-foundation](https://github.com/GlueOps/terraform-snowflake-foundation), which creates the foundational elements for a new Snowflake account, including databases, warehouses, users, and RBAC.
 
 Specifically, the module creates and manages the following Snowflake resources, which are dedicated to the data integrator:
