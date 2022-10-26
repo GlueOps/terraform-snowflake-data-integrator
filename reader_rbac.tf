@@ -8,7 +8,7 @@ resource "snowflake_role_grants" "grant_data_integrator_reader_role" {
   provider = snowflake
 
   role_name = snowflake_role.data_integrator_reader_role.name
-  roles     = var.reader_roles
+  roles     = concat(var.reader_roles, [snowflake_role.integrator_role.name])
 
 }
 

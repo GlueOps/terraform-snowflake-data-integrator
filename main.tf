@@ -40,7 +40,7 @@ resource "snowflake_warehouse_grant" "integrator_warehouse_grant" {
   warehouse_name = snowflake_warehouse.integrator_warehouse.name
   privilege      = "USAGE"
 
-  roles = []
+  roles = [snowflake_role.integrator_role.name]
 }
 
 
@@ -53,7 +53,7 @@ resource "snowflake_database" "integrator_database" {
 
 #=== Grants
 #= read
-resource "snowflake_database_grant" "integrator_db_read" {
+resource "snowflake_database_grant" "integrator_db_usage" {
   provider = snowflake
 
   database_name = snowflake_database.integrator_database.name
@@ -62,7 +62,7 @@ resource "snowflake_database_grant" "integrator_db_read" {
   shares        = []
 }
 
-resource "snowflake_schema_grant" "integrator_schema_read" {
+resource "snowflake_schema_grant" "integrator_schema_usage" {
   provider = snowflake
 
   database_name = snowflake_database.integrator_database.name
