@@ -17,3 +17,10 @@ variable "integrator_warehouse_config" {
     auto_suspend_seconds = "60"
   }
 }
+
+variable "reader_roles" {
+  description = "Roles to be granted READ access to database where data from integrator is stored."
+
+  type    = list(string)
+  default = ["READ_ALL"]
+}
