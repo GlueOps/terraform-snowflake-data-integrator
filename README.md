@@ -34,8 +34,8 @@ The following variables defaults are set in `variables.tf`.
 
 ```hcl
 integrator_warehouse_config = {
-warehouse_size       = "x-small"
-auto_suspend_seconds = "60"
+  warehouse_size       = "x-small"
+  auto_suspend_seconds = "60"
 }
 
 reader_roles = ["READ_ALL"]
