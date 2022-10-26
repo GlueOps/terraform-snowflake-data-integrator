@@ -51,48 +51,7 @@ resource "snowflake_database" "integrator_database" {
 }
 
 
-#=== Grants
-#= read
-resource "snowflake_database_grant" "integrator_db_usage" {
-  provider = snowflake
-
-  database_name = snowflake_database.integrator_database.name
-  privilege     = "USAGE"
-  roles         = [snowflake_role.integrator_role.name]
-  shares        = []
-}
-
-resource "snowflake_schema_grant" "integrator_schema_usage" {
-  provider = snowflake
-
-  database_name = snowflake_database.integrator_database.name
-  privilege     = "USAGE"
-  roles         = [snowflake_role.integrator_role.name]
-
-  on_future = true
-}
-
-resource "snowflake_table_grant" "integrator_table_read" {
-  provider = snowflake
-
-  database_name = snowflake_database.integrator_database.name
-  privilege     = "SELECT"
-  roles         = [snowflake_role.integrator_role.name]
-
-  on_future = true
-}
-
-resource "snowflake_view_grant" "integrator_view_read" {
-  provider = snowflake
-
-  database_name = snowflake_database.integrator_database.name
-  privilege     = "SELECT"
-  roles         = [snowflake_role.integrator_role.name]
-
-  on_future = true
-}
-
-#= write
+#=== Write Grants
 resource "snowflake_database_grant" "integrator_db_cs_grant" {
   provider = snowflake
 
